@@ -2,7 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/Utilities/Home_Model.dart';
 import 'package:provider/provider.dart';
+import 'Authentications_Pages/Auth.dart';
 import 'Authentications_Pages/login.dart';
+import 'Home Pages/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,17 +24,18 @@ class MyApp extends StatelessWidget {
         home:
         ChangeNotifierProvider(
           create: (_) => HomeModel(),
-          child: Login(),
+          child:
+          // Login(),
+    StreamBuilder(
+      stream: Auth().authStateChange,
+      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+        if(snapshot.hasData) {
+          return const Home();
+        } else {
+          return const Login();
+        }
+      },),
         )
-        // StreamBuilder(
-        //   stream: Auth().authStateChanges,
-        //   builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-        //     if(snapshot.hasData) {
-        //       return const Home();
-        //     } else {
-        //       return const Login();
-        //     }
-        //   },),
     );
   }
 }

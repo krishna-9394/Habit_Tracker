@@ -1,11 +1,13 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:habit_tracker/Authentications_Pages/register.dart';
 import 'package:provider/provider.dart';
 
+import '../Home Pages/home_page.dart';
 import '../Utilities/ButtonWidgets.dart';
 import '../Utilities/Home_Model.dart';
 import '../Utilities/TextField.dart';
+import '../Utilities/Toast.dart';
 import '../Utilities/Waves.dart';
 
 class Login extends StatefulWidget {
@@ -16,21 +18,28 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final TextEditingController emailEditor = TextEditingController();
-  final TextEditingController passwordEditor = TextEditingController();
+  bool isLogin = false;
+  String password = "";
+  String email = "";
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  void _Login() async {
-    if (emailEditor.text.isEmpty || emailEditor.text == '') return;
-    if (!EmailValidator.validate(emailEditor.text)) return;
+  void _login() async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
-          email: emailEditor.text, password: passwordEditor.text);
+          email: email, password: password);
     } catch (e) {
       print("error: ${e.toString()}");
     }
   }
 
+  void _register() async {
+    try {
+      await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
+    } catch (e) {
+      print("error: ${e.toString()}");
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -83,6 +92,7 @@ class _LoginState extends State<Login> {
                 suffixData: model.isValid ? Icons.check : null,
                 onChanged: (value) {
                   model.isValidEmail(value);
+                  email = value;
                 },
               ),
               const SizedBox(height: 10.0),
@@ -92,6 +102,9 @@ class _LoginState extends State<Login> {
                 prefixIconData: Icons.lock_outline,
                 suffixData: model.isVisible? Icons.visibility :
                 Icons.visibility_off,
+                onChanged: (value){
+                  password = value;
+                },
               ),
               const SizedBox(height: 20.0),
               Row(
@@ -110,6 +123,14 @@ class _LoginState extends State<Login> {
                 hasBorder: false,
                 title: 'Login',
                 onPressed: () {
+                  _login();
+                  Toast()
+                      .createToast("Login Successful...");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                          const Home()));
                 },
               ),
               const SizedBox(height: 10.0),
@@ -117,7 +138,14 @@ class _LoginState extends State<Login> {
                 hasBorder: true,
                 title: 'SignUp',
                 onPressed: () {
-
+                  _register();
+                  Toast()
+                      .createToast("Signup Successful...");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                          const Home()));
                 },
               ),
             ],

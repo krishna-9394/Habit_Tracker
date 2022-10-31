@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../Authentications_Pages/Auth.dart';
 import '../Utilities/TaskUI.dart';
 
 class Home extends StatefulWidget {
@@ -10,10 +12,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // final  User? user = Auth().currentUser;
-  // Future<void> signOut() async {
-  //   await Auth().signOut();
-  // }
+  final  User? user = Auth().currentUser;
+  Future<void> signOut() async {
+    await Auth().signOut();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
