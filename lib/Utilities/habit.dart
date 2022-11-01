@@ -1,13 +1,14 @@
 import 'package:hive/hive.dart';
-import 'Habits.g.dart';
+part 'habit.g.dart';
 @HiveType(typeId: 0)
 class Habit extends HiveObject{
   @HiveField(0)
   late String habitName;
   @HiveField(1)
-  late DateTime timeStamp;
-}
-@HiveType(typeId: 1)
-class User{
+  late int timeSpent;
+  @HiveField(2)
+  late int goalTime;
+  @HiveField(3)
+  late bool hasStarted;
 
 }

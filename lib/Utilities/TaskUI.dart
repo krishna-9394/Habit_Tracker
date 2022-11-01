@@ -88,7 +88,7 @@ class _TaskUIState extends State<TaskUI> {
                 const SizedBox(width: 60),
                 GestureDetector(
                   onTap: widget.settingTap,
-                  child: const Icon(Icons.settings)),
+                  child: const Icon(Icons.delete,color: Colors.red)),
               ],
                 )
             )

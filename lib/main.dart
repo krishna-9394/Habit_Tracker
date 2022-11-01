@@ -8,11 +8,16 @@ import 'package:provider/provider.dart';
 import 'Authentications_Pages/login.dart';
 import 'Home Pages/home_page.dart';
 import 'Utilities/TextField.dart';
+import 'Utilities/habit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // initializing the Firebase
   await Firebase.initializeApp();
+  // initializing the Hive
   await Hive.initFlutter();
+  Hive.registerAdapter(HabitAdapter());
+  await Hive.openBox<Habit>('Habits List');
   runApp(const MyApp());
 }
 

@@ -44,6 +44,7 @@ dependencies:
   provider:
   hive:
   hive_flutter:
+  intl:
 
 dev_dependencies:
   flutter_test:
