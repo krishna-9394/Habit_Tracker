@@ -19,7 +19,30 @@ class _NewHabitState extends State<NewHabit> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return
+    //   AlertDialog(
+    //   title: Text("Add new habit"),
+    //   content: Form(
+    //     child: SingleChildScrollView(
+    //       child: Column(
+    //         mainAxisSize: MainAxisSize.min,
+    //         children: <Widget>[
+    //           SizedBox(height: 8),
+    //           buildName(),
+    //           SizedBox(height: 8),
+    //           buildAmount(),
+    //           SizedBox(height: 8),
+    //           buildRadioButtons(),
+    //         ],
+    //       ),
+    //     ),
+    //   ),
+    //   actions: <Widget>[
+    //     buildCancelButton(context),
+    //     buildAddButton(context, isEditing: isEditing),
+    //   ],
+    // );
+      SingleChildScrollView(
       child: Container(
         margin: const EdgeInsets.only(left: 10,right: 10,top: 10),
         padding: EdgeInsets.only(left: 10,right: 10,top: 10,bottom: (10 + MediaQuery.of(context).viewInsets.bottom)),
@@ -75,7 +98,12 @@ class _NewHabitState extends State<NewHabit> {
                     onPressed: () async {
                       String name = nameEditor.text.trim();
                       if(name == ''){ return; }
-                      widget.addHabit(name,timeEditor.text.trim());
+                      String time = timeEditor.text.trim();
+                      int  hours = double.parse(time.substring(0,2)).toInt();
+                      int minutes = double.parse(time.substring(3,5)).toInt();
+                      int secondes = double.parse(time.substring(6,8)).toInt();
+                      int totalTime = hours*3600 + minutes*60 +secondes;
+                      widget.addHabit(name,totalTime);
                       Navigator.of(context,rootNavigator: true).pop();
                     },
                     child: const Text("Add",style: TextStyle(color: Colors.green),)),

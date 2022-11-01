@@ -12,7 +12,9 @@ class HomeModel extends ChangeNotifier{
   get isValid => _isValid ;
   bool _isValid = false;
   void isValidEmail(String value){
-    if(EmailValidator.validate(value)) {
+    if(value == "") {
+      _isValid = false;
+    } else if(EmailValidator.validate(value)) {
       _isValid = true;
     } else {
       _isValid = false;

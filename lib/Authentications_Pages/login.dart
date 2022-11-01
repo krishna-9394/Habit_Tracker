@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../Home Pages/home_page.dart';
-import '../Utilities/ButtonWidgets.dart';
-import '../Utilities/Home_Model.dart';
-import '../Utilities/TextField.dart';
+import '../Utilities/Authentification/ButtonWidgets.dart';
+import '../Utilities/Authentification/Home_Model.dart';
+import '../Utilities/Authentification/TextField.dart';
 import '../Utilities/Toast.dart';
-import '../Utilities/Waves.dart';
+import '../Utilities/Authentification/Waves.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -47,7 +47,11 @@ class _LoginState extends State<Login> {
       print("error: ${e.toString()}");
     }
   }
-
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
 

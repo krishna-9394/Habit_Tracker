@@ -40,8 +40,9 @@ class _WaveWidgetState extends State<WaveWidget> with TickerProviderStateMixin{
   @override
   void dispose() {
     // TODO: implement dispose
-    super.dispose();
     animationController.dispose();
+    super.dispose();
+
   }
   @override
   Widget build(BuildContext context) {

@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class TaskUI extends StatefulWidget {
-  final String habitName;
+import 'habit.dart';
+
+class HabitUI extends StatefulWidget {
+  final Habit habit;
   final VoidCallback onTap;
   final VoidCallback settingTap;
-  final int timeSpent;
-  final int timeGoal;
-  final bool habitStarted;
-  TaskUI(
+  const HabitUI(
       {super.key,
-      required this.habitName,
+      required this.habit,
       required this.onTap,
-      required this.settingTap,
-      required this.timeSpent,
-      required this.timeGoal,
-      required this.habitStarted});
+      required this.settingTap,});
   @override
-  State<TaskUI> createState() => _TaskUIState();
+  State<HabitUI> createState() => _HabitUIState();
 }
 
-class _TaskUIState extends State<TaskUI> {
+class _HabitUIState extends State<HabitUI> {
   // method to convert seconds to min:sec
   String convertTime(int time){
     int sec = time%60;
@@ -30,7 +26,7 @@ class _TaskUIState extends State<TaskUI> {
   late double percentage; 
   @override
   Widget build(BuildContext context) {
-    percentage =  (widget.timeSpent/widget.timeGoal);
+    percentage =  (widget.habit.timeSpent/widget.habit.goalTime);
     return Container(
       padding: const EdgeInsets.only(
         left: 20,
@@ -56,7 +52,7 @@ class _TaskUIState extends State<TaskUI> {
                           lineWidth: 5.0,
                           percent: percentage < 1 ? percentage : 1,
                           progressColor: percentage > 0.35 ? (percentage > 0.75 ? Colors.green : Colors.orange) : Colors.red,
-                          center: widget.habitStarted
+                          center: widget.habit.hasStarted
                               ? const Icon(
                                   Icons.pause,
                                   size: 26,
@@ -75,19 +71,19 @@ class _TaskUIState extends State<TaskUI> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      widget.habitName,
+                      widget.habit.habitName,
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       )),
                       const SizedBox(height: 4,),
-                      Text("${convertTime(widget.timeSpent)}/${convertTime(widget.timeGoal)} = ${double.parse((percentage*100).toStringAsFixed(1))}"),
+                      Text("${convertTime(widget.habit.timeSpent)}/${convertTime(widget.habit.goalTime)} = ${double.parse((percentage*100).toStringAsFixed(1))}"),
                       // ${double.parse((().toStringAsFixed(0))}%
                       ]
                         ),
                 const SizedBox(width: 60),
                 GestureDetector(
-                  onTap: widget.settingTap,
+                  onTap: () =>widget.settingTap(),
                   child: const Icon(Icons.delete,color: Colors.red)),
               ],
                 )
