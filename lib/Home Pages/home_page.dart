@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracker/Utilities/Toast.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:intl/intl.dart';
 
 import '../Authentications_Pages/Auth.dart';
 import '../Utilities/Boxes.dart';
@@ -139,7 +140,7 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add,),
         onPressed: (){
-          showModalBottomSheet(context: context, builder: ((builderContext){
+          showDialog(context: context, builder: ((builderContext){
             return NewHabit(addHabit);
           }));
         },
@@ -171,9 +172,6 @@ class _HomeState extends State<Home> {
 
   }
 }
-
-
-
 
 // import 'package:flutter/material.dart';
 // import 'package:hive/hive.dart';

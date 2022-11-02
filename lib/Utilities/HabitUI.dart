@@ -46,25 +46,24 @@ class _HabitUIState extends State<HabitUI> {
                   onTap: widget.onTap,
                   child: SizedBox(
                       width: 60,
-                      child: Stack(children: [
-                        CircularPercentIndicator(
-                          radius: 32,
-                          lineWidth: 5.0,
-                          percent: percentage < 1 ? percentage : 1,
-                          progressColor: percentage > 0.35 ? (percentage > 0.75 ? Colors.green : Colors.orange) : Colors.red,
-                          center: widget.habit.hasStarted
-                              ? const Icon(
-                                  Icons.pause,
-                                  size: 26,
-                                  color: Colors.black,
-                                )
-                              : const Icon(
-                                  Icons.play_arrow,
-                                  size: 26,
-                                  color: Colors.black,
-                                ),
+                      child: CircularPercentIndicator(
+                        radius: 32,
+                        lineWidth: 5.0,
+                        percent: percentage < 1 ? percentage : 1,
+                        progressColor: percentage > 0.35 ? (percentage > 0.75 ? Colors.green : Colors.orange) : Colors.red,
+                        center: widget.habit.hasStarted
+                            ? const Icon(
+                          Icons.pause,
+                          size: 26,
+                          color: Colors.black,
+                        )
+                            : const Icon(
+                          Icons.play_arrow,
+                          size: 26,
+                          color: Colors.black,
                         ),
-                      ])),
+                      ),
+                  ),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
