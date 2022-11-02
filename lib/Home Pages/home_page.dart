@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracker/Utilities/Toast.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:intl/intl.dart';
 
 import '../Authentications_Pages/Auth.dart';
 import '../Utilities/Boxes.dart';

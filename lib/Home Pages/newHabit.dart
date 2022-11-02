@@ -46,17 +46,17 @@ class _NewHabitState extends State<NewHabit> {
                       TimeOfDay? pickedTime =  await showTimePicker(
                         initialTime: TimeOfDay.now(),
                         context: context,);
-                      if(pickedTime != null ) {
-                        print(pickedTime.format(context)); //output 10:51 PM
-                        DateTime parsedTime = DateFormat.jm().parse(pickedTime
-                            .format(context).toString());
-                        print(parsedTime); //output 1970-01-01 22:53:00.000
-                        String formattedTime = DateFormat('HH:mm:ss').format(
-                            parsedTime);
-                        print(formattedTime); //output 14:59:00
-                        //DateFormat() is from intl package, you can format the time on any pattern you need.
-                        timeEditor.text = formattedTime;
-                      }
+                        if(pickedTime != null ) {
+                          print(pickedTime.format(context)); //output 10:51 PM
+                          DateTime parsedTime = DateFormat.jm().parse(pickedTime
+                              .format(context).toString());
+                          print(parsedTime); //output 1970-01-01 22:53:00.000
+                          String formattedTime = DateFormat('HH:mm:ss').format(
+                              parsedTime);
+                          print(formattedTime); //output 14:59:00
+                          //DateFormat() is from intl package, you can format the time on any pattern you need.
+                          timeEditor.text = formattedTime;
+                        }
                     }
                 ),
                 SizedBox(height: 8),
