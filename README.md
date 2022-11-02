@@ -28,7 +28,10 @@ samples, guidance on mobile development, and a full API reference.
     a) The official flutter documentation
     b) Geeks for Geeks for understanding the syntax of Dart Programming language
     c) Stack Overflow for solving the errors that occurred while developing the Application
-    d) Few You Tube lectures and other videos.
+    d) F<img width="203" alt="screen 6" src="https://user-images.githubusercontent.com/97300688/199414622-65f4fb18-3243-40b4-a67d-f44474185bc8.png">
+<img width="199" alt="screen 7" src="https://user-images.githubusercontent.com/97300688/199414627-a6d82506-21ad-4035-8992-96ccba42afbd.png">
+<img width="200" alt="screen 8" src="https://user-images.githubusercontent.com/97300688/199414629-e0d216e7-466a-40ee-a9fe-7cdc0cd3dec7.png">
+ew You Tube lectures and other videos.
     e) R and D
 ## Design Tools Used
     a) List View
@@ -40,5 +43,14 @@ samples, guidance on mobile development, and a full API reference.
     a) Timer input does not takes input of time less than 1 hours 
     
 ## Demo 
+
+<img width="200" alt="screen 1" src="https://user-images.githubusercontent.com/97300688/199414610-01fb6621-a478-4f6c-9c05-097bf5b7c70d.png">
+<img width="198" alt="screen 2" src="https://user-images.githubusercontent.com/97300688/199414612-e5435360-3fae-4d76-989e-109254fee91b.png">
+<img width="200" alt="screen 3" src="https://user-images.githubusercontent.com/97300688/199414614-4f5ba5ec-e52a-4328-8ed2-06a11c34f3cb.png">
+<img width="340" alt="screen 4" src="https://user-images.githubusercontent.com/97300688/199414616-06a27618-7c0f-4a83-a403-279eab8a7c97.png">
+<img width="196" alt="screen 5" src="https://user-images.githubusercontent.com/97300688/199414619-4386f9a9-da56-4aa8-9957-a650122e413e.png">
+<img width="203" alt="screen 6" src="https://user-images.githubusercontent.com/97300688/199414685-43cc5d51-2ff3-474e-b4d0-ab3285684fab.png">
+<img width="199" alt="screen 7" src="https://user-images.githubusercontent.com/97300688/199414693-8b10a3fc-3608-4dc8-bd36-9c8fa5106407.png">
+<img width="200" alt="screen 8" src="https://user-images.githubusercontent.com/97300688/199414698-3e2919be-4d1d-4de2-b838-d54758b2f870.png">
 
       
