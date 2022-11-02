@@ -28,10 +28,7 @@ samples, guidance on mobile development, and a full API reference.
     a) The official flutter documentation
     b) Geeks for Geeks for understanding the syntax of Dart Programming language
     c) Stack Overflow for solving the errors that occurred while developing the Application
-    d) F<img width="203" alt="screen 6" src="https://user-images.githubusercontent.com/97300688/199414622-65f4fb18-3243-40b4-a67d-f44474185bc8.png">
-<img width="199" alt="screen 7" src="https://user-images.githubusercontent.com/97300688/199414627-a6d82506-21ad-4035-8992-96ccba42afbd.png">
-<img width="200" alt="screen 8" src="https://user-images.githubusercontent.com/97300688/199414629-e0d216e7-466a-40ee-a9fe-7cdc0cd3dec7.png">
-ew You Tube lectures and other videos.
+    d) Few You Tube lectures and other videos.
     e) R and D
 ## Design Tools Used
     a) List View
