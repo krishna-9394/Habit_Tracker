@@ -38,4 +38,7 @@ samples, guidance on mobile development, and a full API reference.
     a) syncing of data with firebase 
 ## List of known bugs
     a) Timer input does not takes input of time less than 1 hours 
+    
+## Demo 
+
       
