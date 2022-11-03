@@ -22,17 +22,20 @@ class _LoginState extends State<Login> {
   String email = "";
 
   void _login() async {
-    try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password)
-          .then((value) {
-        Toast().createToast("Login Successful...");
+    Toast().createToast("by passed login...");
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => const Home()));
-      });
-    } catch (e) {
-      print("error: ${e.toString()}");
-    }
+    // try {
+    //   await FirebaseAuth.instance
+    //       .signInWithEmailAndPassword(email: email, password: password)
+    //       .then((value) {
+    //     Toast().createToast("Login Successful...");
+    //     Navigator.push(
+    //         context, MaterialPageRoute(builder: (context) => const Home()));
+    //   });
+    // } catch (e) {
+    //   print("error: ${e.toString()}");
+    // }
   }
   void _register() async {
     try {
