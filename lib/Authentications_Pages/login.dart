@@ -22,20 +22,20 @@ class _LoginState extends State<Login> {
   String email = "";
 
   void _login() async {
-    Toast().createToast("by passed login...");
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Home()));
-    // try {
-    //   await FirebaseAuth.instance
-    //       .signInWithEmailAndPassword(email: email, password: password)
-    //       .then((value) {
-    //     Toast().createToast("Login Successful...");
+    // Toast().createToast("by passed login...");
     //     Navigator.push(
     //         context, MaterialPageRoute(builder: (context) => const Home()));
-    //   });
-    // } catch (e) {
-    //   print("error: ${e.toString()}");
-    // }
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((value) {
+        Toast().createToast("Login Successful...");
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Home()));
+      });
+    } catch (e) {
+      print("error: ${e.toString()}");
+    }
   }
   void _register() async {
     try {
@@ -64,7 +64,7 @@ class _LoginState extends State<Login> {
     final Widget stacks = Stack(
       children: [
         Container(
-          height: size.height - 200,
+          height: size.height - 150,
           color: Global.mediumBlue,
         ),
         AnimatedPositioned(
@@ -93,8 +93,11 @@ class _LoginState extends State<Login> {
             ),
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.all(30),
+        Positioned(
+          top: 0,
+          left: 10,
+          right: 10,
+          bottom: 10,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -144,11 +147,9 @@ class _LoginState extends State<Login> {
       ],
     );
     return Scaffold(
-      appBar: AppBar(title: const Text("Home")),
+      appBar: AppBar(title: const Text("Auth")),
       backgroundColor: Global.white,
-      body: isKeyBoardOpen ? SingleChildScrollView(
-          child: stacks
-      ) : stacks,
+      body: stacks,
 
     );
   }
